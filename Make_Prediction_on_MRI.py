@@ -13,9 +13,9 @@ import sys
 
 MODEL_WEIGHTS_PATH = '/model/pretrained_model_weights.npy'
             
-T1_POST_PATH = "/data/Breast_MRI_001/T1_axial_02.nii.gz"
-DCE_IN_PATH = "/data/Breast_MRI_001/T1_axial_slope1.nii.gz"
-DCE_OUT_PATH = "/data/Breast_MRI_001/T1_axial_slope2.nii.gz"            
+T1_POST_PATH = "data/inputs/7A8rgvMkzi_20170511_091726/post.nii.gz"
+DCE_IN_PATH = "data/inputs/7A8rgvMkzi_20170511_091726/slope1.nii.gz"
+DCE_OUT_PATH = "data/inputs/7A8rgvMkzi_20170511_091726/slope2.nii.gz"            
 
 T1_pre_nii_path = '' # If data already normalized, no need for T1pre image
 MODALITY = 'axial' # 'axial'
@@ -40,9 +40,9 @@ if __name__ == '__main__':
     model.set_weights(loaded_weights) # no need to compile model as we are just doing inference.
     
     # Load and process data
-    all_subject_channels = [project_directory + T1_POST_PATH, 
-                            project_directory + DCE_IN_PATH, 
-                            project_directory + DCE_OUT_PATH] 
+    all_subject_channels = [T1_POST_PATH, 
+                            DCE_IN_PATH, 
+                            DCE_OUT_PATH] 
     
     X, shape = load_and_preprocess(all_subject_channels, T1_pre_nii_path=T1_pre_nii_path, side=SIDE, imaging_protocol=MODALITY, debug=False)
     
