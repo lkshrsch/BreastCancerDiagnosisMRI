@@ -118,7 +118,7 @@ Preprocessing followed our previous work in segmentation. Briefly, pre- and post
 **Training**
 The model is trained using index slices from malignant images as positive examples. As negative examples, we selected the center slice and one randomly selected slice from benign images. All models were trained using a focal loss with alpha=5, using the ”Adam” optimizer with learning rate=1e-5. All models were trained for 100 epochs, and the model with the lowest validation loss was saved for evaluation. Unless specified, all models were trained with data augmentation, consisting of random rotation within 60 degrees, random shear of scale 0.1, random horizontal and vertical flips, and random intensity scaling in range 0.8-1.2, all implemented using the TensorFlow preprocessing ImageDataGenerator library.
 
-## License and Disclaimer
+# License and Disclaimer
 
 This repository contains code and trained model weights. The code is licensed under the Apache License 2.0, found in the file LICENSE. The model weights are licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License (CC BY-NC-SA 4.0), found in the file LICENSE-WEIGHTS. The weights may be used and adapted for noncommercial purposes only, and adapted weights, including fine-tuned weights, must be shared under the same license.
 
